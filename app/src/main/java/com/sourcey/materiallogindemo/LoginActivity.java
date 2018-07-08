@@ -92,7 +92,6 @@ public class LoginActivity extends AppCompatActivity {
         _loginButton.setOnClickListener(new View.OnClickListener() {
             String user_name = _userText.getText().toString();
             String pass_word = _passwordText.getText().toString();
-
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -148,14 +147,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // TODO: Implement your own authentication logic here.
 
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
-                        onLoginFailed();
-                    }
-                }, 3000);
+
     }
 
 
@@ -189,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public boolean validate() {
+    private boolean validate() {
         boolean valid = true;
 
         String password = _passwordText.getText().toString();

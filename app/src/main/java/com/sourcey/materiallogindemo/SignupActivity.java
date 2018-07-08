@@ -95,7 +95,7 @@ public class SignupActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, genderRoleString);
         adapter_role
                 .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        _spinnerGender.setAdapter(adapter_role);
+        _spinnerGender.setAdapter(adapter_role1);
 
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
