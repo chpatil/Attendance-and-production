@@ -108,6 +108,54 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
+    /*public void test(){
+        registerButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                //......................................validation
+                String first_name = textFirstName.getText().toString();
+                String last_name = textLastName.getText().toString();
+                String phone_no = textcontact.getText().toString();
+                String address = textaddress.getText().toString();
+
+                if (TextUtils.isEmpty(first_name)) {
+                    textFirstName.setError("please enter firstname");
+                }
+
+                else if (TextUtils.isEmpty(last_name)) {
+                    textLastName.setError("please enter lastname");
+                }
+                else if (TextUtils.isEmpty(phone_no)) {
+                    textcontact.setError("please enter phoneno");
+                }
+
+                else if (TextUtils.isEmpty(address)) {
+                    textaddress.setError("enter address");
+                }
+                else {
+
+                    StudentBean studentBean = new StudentBean();
+
+                    studentBean.setStudent_firstname(first_name);
+                    studentBean.setStudent_lastname(last_name);
+                    studentBean.setStudent_mobilenumber(phone_no);
+                    studentBean.setStudent_address(address);
+                    studentBean.setStudent_department(branch);
+                    studentBean.setStudent_class(year);
+
+                    DBAdapter dbAdapter= new DBAdapter(AddStudentActivity.this);
+                    dbAdapter.addStudent(studentBean);
+
+                    Intent intent =new Intent(AddStudentActivity.this,MenuActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "student added successfully", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+    }*/
     public void signup() {
         Log.d(TAG, "Worker Registration");
 

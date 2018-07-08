@@ -30,21 +30,16 @@ public class DBAdapter extends SQLiteOpenHelper {
 
 
     // Contacts Table Columns names
-    private static final String KEY_FACULTY_ID = "faculty_id";
-    private static final String KEY_FACULTY_FIRSTNAME = "faculty_firstname";
-    private static final String KEY_FACULTY_LASTNAME = "faculty_Lastname";
-    private static final String KEY_FACULTY_MO_NO = "faculty_mobilenumber";
-    private static final String KEY_FACULTY_ADDRESS = "faculty_address";
-    private static final String KEY_FACULTY_USERNAME = "faculty_username";
-    private static final String KEY_FACULTY_PASSWORD = "faculty_password";
+    private static final String KEY_WORKER_ID = "worker_id";
+    private static final String KEY_WORKER_NAME = "worker_name";
+    private static final String KEY_WORKER_ADDRESS = "worker_address";
+    private static final String KEY_WORKER_DEPARTMENT = "worker_department";
+    private static final String KEY_WORKER_GENDER = "worker_gender";
+    private static final String KEY_WORKER_AADHAR = "worker_aadhar";
+    private static final String KEY_WORKER_BANKNAME = "worker_bankname";
+    private static final String KEY_WORKER_IFSC = "worker_ifsc";
+    private static final String KEY_WORKER_ACCOUNTNUMBER = "worker_accountnumber";
 
-    private static final String KEY_STUDENT_ID = "student_id";
-    private static final String KEY_STUDENT_FIRSTNAME = "student_firstname";
-    private static final String KEY_STUDENT_LASTNAME = "student_lastname";
-    private static final String KEY_STUDENT_MO_NO = "student_mobilenumber";
-    private static final String KEY_STUDENT_ADDRESS = "student_address";
-    private static final String KEY_STUDENT_DEPARTMENT = "student_department";
-    private static final String KEY_STUDENT_CLASS = "student_class";
 
     private static final String KEY_ATTENDANCE_SESSION_ID = "attendance_session_id";
     private static final String KEY_ATTENDANCE_SESSION_FACULTY_ID = "attendance_session_faculty_id";
@@ -66,26 +61,19 @@ public class DBAdapter extends SQLiteOpenHelper {
     @Override
 
     public void onCreate(SQLiteDatabase db) {
-        String queryFaculty = "CREATE TABLE " + FACULTY_INFO_TABLE + " (" +
-                KEY_FACULTY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_FACULTY_FIRSTNAME + " TEXT, " +
-                KEY_FACULTY_LASTNAME + " TEXT, " +
-                KEY_FACULTY_MO_NO + " TEXT, " +
-                KEY_FACULTY_ADDRESS + " TEXT," +
-                KEY_FACULTY_USERNAME + " TEXT," +
-                KEY_FACULTY_PASSWORD + " TEXT " + ")";
-        Log.d("queryFaculty", queryFaculty);
 
 
-        String queryStudent = "CREATE TABLE " + STUDENT_INFO_TABLE + " (" +
-                KEY_STUDENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_STUDENT_FIRSTNAME + " TEXT, " +
-                KEY_STUDENT_LASTNAME + " TEXT, " +
-                KEY_STUDENT_MO_NO + " TEXT, " +
-                KEY_STUDENT_ADDRESS + " TEXT," +
-                KEY_STUDENT_DEPARTMENT + " TEXT," +
-                KEY_STUDENT_CLASS + " TEXT " + ")";
-        Log.d("queryStudent", queryStudent);
+        String queryWorker = "CREATE TABLE " + STUDENT_INFO_TABLE + " (" +
+                KEY_WORKER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                KEY_WORKER_GENDER + " TEXT, " +
+                KEY_WORKER_ADDRESS + " TEXT, " +
+                KEY_WORKER_ID + " TEXT, " +
+                KEY_WORKER_DEPARTMENT + " TEXT," +
+                KEY_WORKER_AADHAR + " TEXT," +
+                KEY_WORKER_BANKNAME + " TEXT" +
+                KEY_WORKER_IFSC + "TEXT" +
+                KEY_WORKER_ACCOUNTNUMBER + "TEXT" + ")";
+        Log.d("queryWorker", queryWorker);
 
 
         String queryAttendanceSession = "CREATE TABLE " + ATTENDANCE_SESSION_TABLE + " (" +
@@ -106,8 +94,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 
 
         try {
-            db.execSQL(queryFaculty);
-            db.execSQL(queryStudent);
+            db.execSQL(queryWorker);
             db.execSQL(queryAttendanceSession);
             db.execSQL(queryAttendance);
         } catch (Exception e) {
@@ -120,26 +107,19 @@ public class DBAdapter extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-        String queryFaculty = "CREATE TABLE " + FACULTY_INFO_TABLE + " (" +
-                KEY_FACULTY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_FACULTY_FIRSTNAME + " TEXT, " +
-                KEY_FACULTY_LASTNAME + " TEXT, " +
-                KEY_FACULTY_MO_NO + " TEXT, " +
-                KEY_FACULTY_ADDRESS + " TEXT," +
-                KEY_FACULTY_USERNAME + " TEXT," +
-                KEY_FACULTY_PASSWORD + " TEXT " + ")";
-        Log.d("queryFaculty", queryFaculty);
 
 
-        String queryStudent = "CREATE TABLE " + STUDENT_INFO_TABLE + " (" +
-                KEY_STUDENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_STUDENT_FIRSTNAME + " TEXT, " +
-                KEY_STUDENT_LASTNAME + " TEXT, " +
-                KEY_STUDENT_MO_NO + " TEXT, " +
-                KEY_STUDENT_ADDRESS + " TEXT," +
-                KEY_STUDENT_DEPARTMENT + " TEXT," +
-                KEY_STUDENT_CLASS + " TEXT " + ")";
-        Log.d("queryStudent", queryStudent);
+        String queryWorker = "CREATE TABLE " + STUDENT_INFO_TABLE + " (" +
+                KEY_WORKER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                KEY_WORKER_GENDER + " TEXT, " +
+                KEY_WORKER_ADDRESS + " TEXT, " +
+                KEY_WORKER_ID + " TEXT, " +
+                KEY_WORKER_DEPARTMENT + " TEXT," +
+                KEY_WORKER_AADHAR + " TEXT," +
+                KEY_WORKER_BANKNAME + " TEXT" +
+                KEY_WORKER_IFSC + "TEXT" +
+                KEY_WORKER_ACCOUNTNUMBER + "TEXT" + ")";
+        Log.d("queryWorker", queryWorker);
 
 
         String queryAttendanceSession = "CREATE TABLE " + ATTENDANCE_SESSION_TABLE + " (" +
@@ -159,8 +139,7 @@ public class DBAdapter extends SQLiteOpenHelper {
         Log.d("queryAttendance", queryAttendance);
 
         try {
-            db.execSQL(queryFaculty);
-            db.execSQL(queryStudent);
+            db.execSQL(queryWorker);
             db.execSQL(queryAttendanceSession);
             db.execSQL(queryAttendance);
         } catch (Exception e) {
