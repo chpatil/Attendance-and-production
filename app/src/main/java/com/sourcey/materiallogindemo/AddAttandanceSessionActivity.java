@@ -1,0 +1,13 @@
+package com.sourcey.materiallogindemo;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+public class AddAttandanceSessionActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_attandance_session);
+    }
+}

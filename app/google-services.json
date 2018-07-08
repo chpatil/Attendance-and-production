@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "300196284451",
+    "firebase_url": "https://materiallogindemo-master-cf360.firebaseio.com",
+    "project_id": "materiallogindemo-master-cf360",
+    "storage_bucket": "materiallogindemo-master-cf360.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300196284451:android:a4b0a6895ea3d369",
+        "android_client_info": {
+          "package_name": "com.sourcey.materialloginexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300196284451-i31ami04vgosvsi55m1abba4mgq4d3tp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "07fd46083011a81d0d02ef0b39e1b427f7225f6e"
+          }
+        },
+        {
+          "client_id": "300196284451-gj1i422j1up7egensmt11aaah6lkg7sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-aTDPfu73RpQxbWBwwfXeaYJaSi9zSQU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300196284451-gj1i422j1up7egensmt11aaah6lkg7sa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

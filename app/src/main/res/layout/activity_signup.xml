@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="56dp">
+
+
+        <!-- Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+        <!--Spinner Gender -->
+
+        <Spinner
+            android:id="@+id/Spinner_gender"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Address Label -->
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/input_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:inputType="textPostalAddress" />
+        </android.support.design.widget.TextInputLayout>
+        <!--gennder label -->
+
+        <!--idno label -->
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/idno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="id no"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--Aadhar no label -->
+        <Spinner
+            android:id="@+id/Spinner_department"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/aadhar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Aadhar"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  Bank name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/bankname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Bank name"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- IFSC code number -->
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/IFSC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="IFSC code"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Account no Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/Accountno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Account number"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- Signup Button -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"></android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"
+            android:text="Create Worker" />
+
+    </LinearLayout>
+</ScrollView>
