@@ -3,12 +3,15 @@ package com.sourcey.materiallogindemo.bean;
 public class SupervisorBean {
 
     private int faculty_id;
-    private String faculty_firstname;
-    private String faculty_lastname;
-    private String faculty_mobilenumber;
-    private String faculty_address;
-    private String faculty_username;
-    private String faculty_password;
+    private String supervisor_name;
+    private String supervisor_mobilenumber;
+    private String supervisor_address;
+    private String supervisor_username;
+    private String supervisor_password;
+    private String worker_aadhar;
+    private String worker_bankname;
+    private String worker__ifsc;
+    private String worker_accountnumber;
 
     public int getFaculty_id() {
         return faculty_id;
@@ -18,53 +21,75 @@ public class SupervisorBean {
         this.faculty_id = faculty_id;
     }
 
-    public String getFaculty_firstname() {
-        return faculty_firstname;
+    public String getSupervisor_name() {
+        return supervisor_name;
     }
 
-    public void setFaculty_firstname(String faculty_firstname) {
-        this.faculty_firstname = faculty_firstname;
+    public void setSupervisor_name(String supervisor_name) {
+        this.supervisor_name = supervisor_name;
     }
 
-    public String getFaculty_lastname() {
-        return faculty_lastname;
+    public String getSupervisor_mobilenumber() {
+        return supervisor_mobilenumber;
     }
 
-    public void setFaculty_lastname(String faculty_lastname) {
-        this.faculty_lastname = faculty_lastname;
+    public void setSupervisor_mobilenumber(String supervisor_mobilenumber) {
+        this.supervisor_mobilenumber = supervisor_mobilenumber;
     }
 
-    public String getFaculty_mobilenumber() {
-        return faculty_mobilenumber;
+    public String getSupervisor_address() {
+        return supervisor_address;
     }
 
-    public void setFaculty_mobilenumber(String faculty_mobilenumber) {
-        this.faculty_mobilenumber = faculty_mobilenumber;
+    public void setSupervisor_address(String supervisor_address) {
+        this.supervisor_address = supervisor_address;
     }
 
-    public String getFaculty_address() {
-        return faculty_address;
+    public String getSupervisor_username() {
+        return supervisor_username;
     }
 
-    public void setFaculty_address(String faculty_address) {
-        this.faculty_address = faculty_address;
+    public void setSupervisor_username(String supervisor_username) {
+        this.supervisor_username = supervisor_username;
     }
 
-    public String getFaculty_username() {
-        return faculty_username;
+    public String getSupervisor_password() {
+        return supervisor_password;
     }
 
-    public void setFaculty_username(String faculty_username) {
-        this.faculty_username = faculty_username;
+    public void setSupervisor_password(String supervisor_password) {
+        this.supervisor_password = supervisor_password;
     }
 
-    public String getFaculty_password() {
-        return faculty_password;
+    public String getWorker_aadhar() {
+        return worker_aadhar;
     }
 
-    public void setFaculty_password(String faculty_password) {
-        this.faculty_password = faculty_password;
+    public void setWorker_aadhar(String worker_aadhar) {
+        this.worker_aadhar = worker_aadhar;
     }
 
+    public String getWorker_bankname() {
+        return worker_bankname;
+    }
 
+    public void setWorker_bankname(String worker_bankname) {
+        this.worker_bankname = worker_bankname;
+    }
+
+    public String getWorker__ifsc() {
+        return worker__ifsc;
+    }
+
+    public void setWorker__ifsc(String worker__ifsc) {
+        this.worker__ifsc = worker__ifsc;
+    }
+
+    public String getWorker_accountnumber() {
+        return worker_accountnumber;
+    }
+
+    public void setWorker_accountnumber(String worker_accountnumber) {
+        this.worker_accountnumber = worker_accountnumber;
+    }
 }

@@ -40,7 +40,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 
 
     private static final String KEY_ATTENDANCE_SESSION_ID = "attendance_session_id";
-    private static final String KEY_ATTENDANCE_SESSION_FACULTY_ID = "attendance_session_faculty_id";
+    private static final String KEY_ATTENDANCE_SESSION_SUPERVISOR_ID = "attendance_session_faculty_id";
     private static final String KEY_ATTENDANCE_SESSION_DEPARTMENT = "attendance_session_department";
     private static final String KEY_ATTENDANCE_SESSION_CLASS = "attendance_session_class";
     private static final String KEY_ATTENDANCE_SESSION_DATE = "attendance_session_date";
@@ -76,7 +76,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 
         String queryAttendanceSession = "CREATE TABLE " + ATTENDANCE_SESSION_TABLE + " (" +
                 KEY_ATTENDANCE_SESSION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_ATTENDANCE_SESSION_FACULTY_ID + " INTEGER, " +
+                KEY_ATTENDANCE_SESSION_SUPERVISOR_ID + " INTEGER, " +
                 KEY_ATTENDANCE_SESSION_DEPARTMENT + " TEXT, " +
                 KEY_ATTENDANCE_SESSION_CLASS + " TEXT, " +
                 KEY_ATTENDANCE_SESSION_DATE + " DATE," +
@@ -122,7 +122,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 
         String queryAttendanceSession = "CREATE TABLE " + ATTENDANCE_SESSION_TABLE + " (" +
                 KEY_ATTENDANCE_SESSION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_ATTENDANCE_SESSION_FACULTY_ID + " INTEGER, " +
+                KEY_ATTENDANCE_SESSION_SUPERVISOR_ID + " INTEGER, " +
                 KEY_ATTENDANCE_SESSION_DEPARTMENT + " TEXT, " +
                 KEY_ATTENDANCE_SESSION_CLASS + " TEXT, " +
                 KEY_ATTENDANCE_SESSION_DATE + " TEXT," +
@@ -219,7 +219,7 @@ public class DBAdapter extends SQLiteOpenHelper {
     }*/
 
     //student crud
-    public void addStudent(com.sourcey.materiallogindemo.bean.WorkerBean workerBean) {
+    public void addWorker(com.sourcey.materiallogindemo.bean.WorkerBean workerBean) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         String query = "INSERT INTO `worker`(`name`, `gender`, `address`, `id_no`, `department`, `aadhar`, `bank_name`, `ifsc_code`, `account_no`) VALUES ('" +
@@ -236,12 +236,12 @@ public class DBAdapter extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<WorkerBean> getAllStudent() {
+    public ArrayList<WorkerBean> getAllWorker() {
         ArrayList<WorkerBean> list = new ArrayList<WorkerBean>();
 
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM student_table";
+        String query = "SELECT * FROM worker";
         Cursor cursor = db.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {

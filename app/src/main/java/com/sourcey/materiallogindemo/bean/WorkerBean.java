@@ -7,7 +7,6 @@ public class WorkerBean {
     private String worker_gender;
     private String worker_address;
     private String worker_department;
-    private String worker_class;
     private String worker_aadhar;
     private String worker_bankname;
     private String worker__ifsc;
@@ -53,13 +52,6 @@ public class WorkerBean {
         this.worker_department = worker_department;
     }
 
-    public String getWorker_class() {
-        return worker_class;
-    }
-
-    public void setWorker_class(String worker_class) {
-        this.worker_class = worker_class;
-    }
 
     public String getWorker_aadhar() {
         return worker_aadhar;
