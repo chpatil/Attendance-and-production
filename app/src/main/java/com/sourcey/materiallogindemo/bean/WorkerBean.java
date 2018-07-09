@@ -1,6 +1,6 @@
 package com.sourcey.materiallogindemo.bean;
 
-public class StudentBean {
+public class WorkerBean {
 
     private int worker_id;
     private String worker_name;

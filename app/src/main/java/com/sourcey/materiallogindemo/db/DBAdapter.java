@@ -8,8 +8,7 @@ import android.util.Log;
 
 import com.sourcey.materiallogindemo.bean.AttendanceBean;
 import com.sourcey.materiallogindemo.bean.AttendanceSessionBean;
-import com.sourcey.materiallogindemo.bean.StudentBean;
-import com.sourcey.materiallogindemo.bean.SupervisorBean;
+import com.sourcey.materiallogindemo.bean.WorkerBean;
 
 import java.util.ArrayList;
 
@@ -23,8 +22,7 @@ public class DBAdapter extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Attendance";
 
     // Contacts table name
-    private static final String FACULTY_INFO_TABLE = "faculty_table";
-    private static final String STUDENT_INFO_TABLE = "student_table";
+    private static final String WORKER_INFO_TABLE = "worker";
     private static final String ATTENDANCE_SESSION_TABLE = "attendance_session_table";
     private static final String ATTENDANCE_TABLE = "attendance_table";
 
@@ -63,11 +61,11 @@ public class DBAdapter extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
 
-        String queryWorker = "CREATE TABLE " + STUDENT_INFO_TABLE + " (" +
-                KEY_WORKER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        String queryWorker = "CREATE TABLE " + WORKER_INFO_TABLE + " (" +
+                KEY_WORKER_NAME + " TEXT, " +
                 KEY_WORKER_GENDER + " TEXT, " +
                 KEY_WORKER_ADDRESS + " TEXT, " +
-                KEY_WORKER_ID + " TEXT, " +
+                KEY_WORKER_ID + " INTEGER, " +
                 KEY_WORKER_DEPARTMENT + " TEXT," +
                 KEY_WORKER_AADHAR + " TEXT," +
                 KEY_WORKER_BANKNAME + " TEXT" +
@@ -109,7 +107,7 @@ public class DBAdapter extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
 
 
-        String queryWorker = "CREATE TABLE " + STUDENT_INFO_TABLE + " (" +
+        String queryWorker = "CREATE TABLE " + WORKER_INFO_TABLE + " (" +
                 KEY_WORKER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 KEY_WORKER_GENDER + " TEXT, " +
                 KEY_WORKER_ADDRESS + " TEXT, " +
@@ -148,7 +146,7 @@ public class DBAdapter extends SQLiteOpenHelper {
         }
     }
 
-    //facult crud
+    /*//facult crud
     public void addFaculty(SupervisorBean supervisorBean) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -218,26 +216,29 @@ public class DBAdapter extends SQLiteOpenHelper {
         Log.d("query", query);
         db.execSQL(query);
         db.close();
-    }
+    }*/
 
     //student crud
-    public void addStudent(StudentBean studentBean) {
+    public void addStudent(com.sourcey.materiallogindemo.bean.WorkerBean workerBean) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String query = "INSERT INTO student_table (student_firstname,student_lastname,student_mobilenumber,student_address,student_department,student_class) values ('" +
-                studentBean.getStudent_firstname() + "', '" +
-                studentBean.getStudent_lastname() + "','" +
-                studentBean.getStudent_mobilenumber() + "', '" +
-                studentBean.getStudent_address() + "', '" +
-                studentBean.getStudent_department() + "', '" +
-                studentBean.getStudent_class() + "')";
+        String query = "INSERT INTO `worker`(`name`, `gender`, `address`, `id_no`, `department`, `aadhar`, `bank_name`, `ifsc_code`, `account_no`) VALUES ('" +
+                workerBean.getWorker_name() + "', '" +
+                workerBean.getWorker_gender() + "','" +
+                workerBean.getWorker_address() + "', '" +
+                workerBean.getWorker_id() + "', '" +
+                workerBean.getWorker_aadhar() + "', '" +
+                workerBean.getWorker_bankname() + "', '" +
+                workerBean.getWorker__ifsc() + "', '" +
+                workerBean.getWorker_accountnumber() + "')";
         Log.d("query", query);
         db.execSQL(query);
         db.close();
     }
 
-    public ArrayList<StudentBean> getAllStudent() {
-        ArrayList<StudentBean> list = new ArrayList<StudentBean>();
+    public ArrayList<WorkerBean> getAllStudent() {
+        ArrayList<WorkerBean> list = new ArrayList<WorkerBean>();
+
 
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM student_table";
@@ -245,69 +246,76 @@ public class DBAdapter extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                StudentBean studentBean = new StudentBean();
-                studentBean.setStudent_id(Integer.parseInt(cursor.getString(0)));
-                studentBean.setStudent_firstname(cursor.getString(1));
-                studentBean.setStudent_lastname(cursor.getString(2));
-                studentBean.setStudent_mobilenumber(cursor.getString(3));
-                studentBean.setStudent_address(cursor.getString(4));
-                studentBean.setStudent_department(cursor.getString(5));
-                studentBean.setStudent_class(cursor.getString(6));
-                list.add(studentBean);
+                WorkerBean workerBean = new WorkerBean();
+                workerBean.setWorker_name((cursor.getString(0)));
+                workerBean.setWorker_gender(cursor.getString(1));
+                workerBean.setWorker_address(cursor.getString(2));
+                workerBean.setWorker_id(cursor.getInt(3));
+                workerBean.setWorker_department(cursor.getString(4));
+                workerBean.setWorker_aadhar(cursor.getString(5));
+                workerBean.setWorker_bankname(cursor.getString(6));
+                workerBean.setWorker__ifsc(cursor.getString(7));
+                workerBean.setWorker_accountnumber(cursor.getString(8));
+                list.add(workerBean);
             } while (cursor.moveToNext());
         }
         return list;
     }
 
-    public ArrayList<StudentBean> getAllStudentByBranchYear(String branch, String year) {
-        ArrayList<StudentBean> list = new ArrayList<StudentBean>();
+    public ArrayList<WorkerBean> getAllWorkerByDepartment(String department) {
+        ArrayList<WorkerBean> list = new ArrayList<WorkerBean>();
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM student_table where student_department='" + branch + "' and student_class='" + year + "'";
+        String query = "SELECT * FROM worker where department='" + department + "'";
         Cursor cursor = db.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
             do {
-                StudentBean studentBean = new StudentBean();
-                studentBean.setStudent_id(Integer.parseInt(cursor.getString(0)));
-                studentBean.setStudent_firstname(cursor.getString(1));
-                studentBean.setStudent_lastname(cursor.getString(2));
-                studentBean.setStudent_mobilenumber(cursor.getString(3));
-                studentBean.setStudent_address(cursor.getString(4));
-                studentBean.setStudent_department(cursor.getString(5));
-                studentBean.setStudent_class(cursor.getString(6));
-                list.add(studentBean);
+                WorkerBean workerBean = new WorkerBean();
+                workerBean.setWorker_name((cursor.getString(0)));
+                workerBean.setWorker_gender(cursor.getString(1));
+                workerBean.setWorker_address(cursor.getString(2));
+                workerBean.setWorker_id(cursor.getInt(3));
+                workerBean.setWorker_department(cursor.getString(4));
+                workerBean.setWorker_aadhar(cursor.getString(5));
+                workerBean.setWorker_bankname(cursor.getString(6));
+                workerBean.setWorker__ifsc(cursor.getString(7));
+                workerBean.setWorker_accountnumber(cursor.getString(8));
+                list.add(workerBean);
             } while (cursor.moveToNext());
         }
         return list;
     }
 
-    public StudentBean getStudentById(int studentId) {
-        StudentBean studentBean = new StudentBean();
+    public ArrayList<WorkerBean> getAllWorkerByid(int workerId) {
+        ArrayList<WorkerBean> list = new ArrayList<WorkerBean>();
+
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM student_table where student_id=" + studentId;
+        String query = "SELECT * FROM worker where id_no=" + workerId;
         Cursor cursor = db.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
             do {
-
-                studentBean.setStudent_id(Integer.parseInt(cursor.getString(0)));
-                studentBean.setStudent_firstname(cursor.getString(1));
-                studentBean.setStudent_lastname(cursor.getString(2));
-                studentBean.setStudent_mobilenumber(cursor.getString(3));
-                studentBean.setStudent_address(cursor.getString(4));
-                studentBean.setStudent_department(cursor.getString(5));
-                studentBean.setStudent_class(cursor.getString(6));
-
+                WorkerBean workerBean1 = new WorkerBean();
+                workerBean1.setWorker_name((cursor.getString(0)));
+                workerBean1.setWorker_gender(cursor.getString(1));
+                workerBean1.setWorker_address(cursor.getString(2));
+                workerBean1.setWorker_id(cursor.getInt(3));
+                workerBean1.setWorker_department(cursor.getString(4));
+                workerBean1.setWorker_aadhar(cursor.getString(5));
+                workerBean1.setWorker_bankname(cursor.getString(6));
+                workerBean1.setWorker__ifsc(cursor.getString(7));
+                workerBean1.setWorker_accountnumber(cursor.getString(8));
+                list.add(workerBean1);
             } while (cursor.moveToNext());
         }
-        return studentBean;
+        return list;
     }
 
-    public void deleteStudent(int studentId) {
+    public void deleteWorker(int worker_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String query = "DELETE FROM student_table WHERE student_id=" + studentId;
+        String query = "DELETE FROM worker WHERE id_no=" + worker_id;
 
         Log.d("query", query);
         db.execSQL(query);
